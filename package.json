@@ -1,0 +1,17 @@
+{
+  "name": "pdftojson",
+  "version": "1.0.0",
+  "description": "testing pdftojson lib",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "josh and luke",
+  "license": "ISC",
+  "dependencies": {
+    "pdf-parse": "^1.1.1",
+    "pdf-to-text": "0.0.7",
+    "pdf2json": "^1.1.8",
+    "prexview": "^1.1.0"
+  }
+}
