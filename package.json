@@ -13,5 +13,13 @@
     "pdf-to-text": "0.0.7",
     "pdf2json": "^1.1.8",
     "prexview": "^1.1.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ellparsons/Sentinel.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ellparsons/Sentinel/issues"
+  },
+  "homepage": "https://github.com/ellparsons/Sentinel#readme"
 }
