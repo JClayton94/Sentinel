@@ -1,0 +1,18 @@
+body{
+    padding: 20px;
+}
+
+div.pageContent{
+    text-align: center;
+}
+
+div.reportSection{
+    padding: 10px;
+}
+div.chooseFile{
+     padding: 10px;
+}
+
+.submitButton{
+    padding: 10px;
+}
