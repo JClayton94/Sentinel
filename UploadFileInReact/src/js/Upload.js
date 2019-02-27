@@ -34,6 +34,7 @@ class Upload extends Component {
                reportNameMessage: "",
                submitMessage: "File Has Been Submitted"
             });
+            document.location.reload(true)
          }
          else if (reportTitleValue === "" && filevalue !== "") {
             this.setState({
