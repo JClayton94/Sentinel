@@ -11,7 +11,7 @@ fs.readFile('NSAkeywordlist.txt',function(err,data){
     if (err) throw err;
     keywordsarray = data.toString().split(",");
     for(let i = 0;i < keywordsarray.length;i++){
-        console.log(keywordsarray[i]);
+        keywordsarray[i]= keywordsarray[i].trim();
 
     }
     return keywordsarray;
