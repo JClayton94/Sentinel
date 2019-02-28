@@ -33,12 +33,18 @@ for (let targetWord in keywordList.keywords) {
   let tempObject = { word: keywordList.keywords[targetWord], count: counter };
   keywordCount.push(tempObject);
 }
-
+console.log(extractedText);
 console.log(keywordCount);
 
-fileSys.writeFile('extractedWords3.txt', extractedText, function (err) {
+fileSys.writeFile('extractedWords3.js', JSON.stringify(extractedText), function (err) {
   if (err) throw err;
-  // console.log("done");
 });
 
-// console.log(extractedText);
+for (var count in keywordCount) {
+  fileSys.writeFile('KeywordCount.json', null, function (err) {
+    if(err) throw err;
+  })
+  fileSys.appendFile('KeywordCount.json', JSON.stringify(keywordCount[count]), function (err) {
+    if (err) throw err;
+  });
+}
