@@ -1,18 +1,39 @@
 body{
     padding: 20px;
+    background: #aec6cf;
+}
+h2{
+    font-size: 30px;
+    font-weight: 5px;
 }
 
 div.pageContent{
     text-align: center;
+    font-size: 20px;
 }
 
-div.reportSection{
-    padding: 10px;
-}
-div.chooseFile{
-     padding: 10px;
+#intro{
+    padding: 20px;
 }
 
-.submitButton{
+.reportSection{
+    padding: 20px;
+}
+.chooseFile{
+     padding: 20px;
+}
+
+#submitButton{
+  padding: 10px;
+ 
+}
+
+
+#refreshButton{
+ padding: 10px;
+ 
+}
+
+#reportSection{
     padding: 10px;
 }

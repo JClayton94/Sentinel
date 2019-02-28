@@ -1,21 +1,13 @@
 import React, { Component } from 'react';
 
 class ReportTitle extends Component {
-  constructor() {
-        super();
-        this.state = {
-            ReportTitle: "Report Title:"
-        }
-
-    
-    }
 
     render() {
         return (
 
                 <div>
-                {this.state.ReportTitle}
-                <input type="text" placeholder="Enter name" id="ReportName"/>
+                 Report Title:
+                <input type="text" placeholder="Enter name" id="ReportName" onChange={this.props.clickable}/>
                 </div>
         );
     }

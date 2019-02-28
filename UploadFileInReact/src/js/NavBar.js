@@ -31,8 +31,8 @@ class NavBar extends Component {
                         <div className="navMenu">
                             <ul className="topNav" id="topNavJS">
                                 <Link to="/">{this.state.page1}</Link>
-                                <Link to="/">{this.state.page2}</Link>
-                                <Link to="/">{this.state.page3}</Link>
+                                <Link to="/History">{this.state.page2}</Link>
+                                <Link to="/Help">{this.state.page3}</Link>
                             </ul> 
                               <Route exact path="/" component={Upload}/>      
                         </div>    
