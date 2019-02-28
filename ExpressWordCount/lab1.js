@@ -9,17 +9,6 @@ const keywordList = JSON.parse(keywordsImport);
 const keywordCount = [];
 const extractedText = [];
 
-try {
-  // const keywordList = JSON.parse(keywordsImport);
-  for (var word in keywordList.keywords) {
-    // let newWord = { keywordList.keywords[word] : word};
-    // tempKeywords.push(newWord);
-    // console.log(keywordList.keywords[word]);
-  }
-} catch (e) {
-    console.log(e);
-}
-
 for (let text in assessedPages) {
     let tempHold = assessedPages[text].Texts;
     for (let word in tempHold) {
