@@ -1,0 +1,29 @@
+{
+  "name": "pdftojson",
+  "version": "1.0.0",
+  "description": "testing pdftojson lib",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "josh and luke",
+  "license": "ISC",
+  "dependencies": {
+    "mocha": "^6.0.2",
+    "pdf-parse": "^1.1.1",
+    "pdf-to-text": "0.0.7",
+    "pdf2json": "^1.1.8",
+    "prexview": "^1.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ellparsons/Sentinel.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ellparsons/Sentinel/issues"
+  },
+  "homepage": "https://github.com/ellparsons/Sentinel#readme",
+  "devDependencies": {
+    "chai": "^4.2.0"
+  }
+}
