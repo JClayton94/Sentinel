@@ -12,6 +12,7 @@
     "csv": "^5.1.1",
     "express": "^4.16.4",
     "fs": "^0.0.1-security",
+    "mock-fs": "^4.8.0",
     "mongodb": "^3.1.13",
     "mongoose": "^5.4.15",
     "sinon": "^7.2.4"
