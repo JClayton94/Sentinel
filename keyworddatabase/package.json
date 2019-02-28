@@ -1,0 +1,26 @@
+{
+  "name": "keyworddatabase",
+  "version": "1.0.0",
+  "description": "script to read keywords from text file and store them as array in a mongo database",
+  "main": "inputkeywordstodatabase.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "assert": "^1.4.1",
+    "chai": "^4.2.0",
+    "csv": "^5.1.1",
+    "express": "^4.16.4",
+    "fs": "^0.0.1-security",
+    "mock-fs": "^4.8.0",
+    "mongodb": "^3.1.13",
+    "mongoose": "^5.4.15",
+    "sinon": "^7.2.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "anita",
+  "license": "ISC"
+}
