@@ -1,0 +1,27 @@
+{
+  "name": "expresswordcounter",
+  "version": "1.0.0",
+  "description": "keyword counting component for the sentinel project",
+  "main": "lab1.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "express": "^4.16.4",
+    "lodash": "^4.17.11"
+  },
+  "devDependencies": {
+    "mocha": "^6.0.2"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "mocha",
+    "express",
+    "node",
+    "keyword"
+  ],
+  "author": "Jakob Brennan",
+  "license": "ISC"
+}
