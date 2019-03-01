@@ -3,7 +3,7 @@ import '../css/Upload.css';
 
 import ReportTitle from './ReportTitle.js'
 import SelectFile from './SelectFile.js'
-import SubmitButton from './SubmitButton.js'
+
 
 
 class Upload extends Component {
@@ -12,76 +12,136 @@ class Upload extends Component {
         this.state = {
             title: "Upload Files",
             reportNameMessage: "",
-            submitMessage: ""
+            fileTypeMessage: "",
+            submitMessage: "",
+            ableToUpload: "false"
+
         }
 
-        this.submitFile = this.submitFile.bind(this)
+
+
+        this.submitFile = this.submitFile.bind(this);
+        this.ableToSubmit = this.ableToSubmit.bind(this);
+        this.showKeyWords = this.showKeyWords.bind(this);
+         this.refresh = this.refresh.bind(this);
+    }
+
+    componentDidMount() {
+        let button = document.getElementById('submitButton');
+        button.disabled = true;
+    }
+
+
+    ableToSubmit() {
+
+        let reportTitleValue = document.getElementById('ReportName').value;
+        let filevalue = document.getElementById('fileUpload').value;
+        let button = document.getElementById('submitButton');
+
+
+        if (reportTitleValue !== "" && filevalue !== "" && filevalue.endsWith('.pdf')) {
+
+            button.disabled = false;
+            this.setState({
+                reportNameMessage: "",
+                fileTypeMessage: "",
+                submitMessage: ""
+
+            });
+
+
+        }
+       else if (reportTitleValue === "" && filevalue !== "" && filevalue.endsWith('.pdf')) {
+
+            button.disabled = true;
+            this.setState({
+                reportNameMessage: "Please enter a report name",
+                fileTypeMessage: "",
+                submitMessage: ""
+
+            });
+
+
+        }
+
+        else {
+            button.disabled = true;
+            this.setState({
+                fileTypeMessage: "Please choose a PDF"
+            });
+        }
 
     }
 
-   
 
 
     submitFile() {
+
+        // document.location.reload(true)
+
         let reportTitleValue = document.getElementById('ReportName').value;
         let filevalue = document.getElementById('fileUpload').value;
 
-        console.log(reportTitleValue);
+        if (reportTitleValue !== "" && filevalue !== "" && filevalue.endsWith('.pdf')) {
 
-        
-         if (reportTitleValue !== "" && filevalue !== "") {
             this.setState({
-               reportNameMessage: "",
-               submitMessage: "File Has Been Submitted"
+                reportNameMessage: "",
+                fileTypeMessage: "",
+                submitMessage: "File Has Been Submitted"
+
             });
-            document.location.reload(true)
-         }
-         else if (reportTitleValue === "" && filevalue !== "") {
-            this.setState({
-              reportNameMessage: "Please enter report title",
-              submitMessage: ""
-            });
-         }
-         else if (reportTitleValue !== "" && filevalue === "") {
-            this.setState({
-               reportNameMessage: "",
-               submitMessage: "Please Select a File"
-            });
-         }
-        
-        else {
-            this.setState({
-                  reportNameMessage: "Please enter report title",
-                  submitMessage: "Please Select a File"
-            });
+
+            let filePath = document.getElementById('fileUpload').value;
+            console.log(filePath);
+            return filePath;
+
         }
 
 
 
     }
 
+    showKeyWords() {
 
+        let keywordLocation = document.getElementById('keyWordLocation');
+        let keywordValue = document.getElementById('keyWordAmount').value;
+
+        //change hidden not hidden on the paragraph tag.
+    }
+
+    
+refresh(){
+document.location.reload(true);
+}
+    change
 
 
     render() {
+
         return (
             <div className="pageContent">
                 <h2>{this.state.title}</h2>
 
-                <div className="reportSection">
-                    <ReportTitle/>
+                <p id="intro">Welcome. In order to use this upload service you will need to select <br></br>
+                    a PDF file. Please select one and add a title for the report to continue.</p>
+
+                    <div  className="reportSection"><ReportTitle clickable={this.ableToSubmit} /></div>
+
+                    <div className="chooseFile"> <SelectFile  clickable={this.ableToSubmit} /></div>
+
+                    <button onClick={this.submitFile} id="submitButton" >Submit</button>
+
+                    <p>{this.state.fileTypeMessage}</p>
+                    <p>{this.state.reportNameMessage}</p>
+                    <p>{this.state.submitMessage}</p>
+
+                    <button onClick={this.refresh} id="refreshButton" >New Submition</button>
+
+                    <p id="keyWordLocation" hidden > KeyWords: <input type="text" id ="keyWordAmount" /> </p>
+
                 </div>
 
-                <div className="chooseFile">
-                    <SelectFile />
-                </div>
-
-                <SubmitButton message={this.submitFile} />
-              <p> {this.state.reportNameMessage} <br></br> {this.state.submitMessage} </p>
-            
-               
-
-            </div>
+         
         );
     }
 
