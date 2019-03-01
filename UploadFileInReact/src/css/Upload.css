@@ -25,13 +25,14 @@ div.pageContent{
 
 #submitButton{
   padding: 10px;
+  margin: 20px;
  
 }
 
 
 #refreshButton{
  padding: 10px;
- 
+  margin: 20px;
 }
 
 #reportSection{

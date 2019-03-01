@@ -51,6 +51,18 @@ class Upload extends Component {
 
 
         }
+       else if (reportTitleValue === "" && filevalue !== "" && filevalue.endsWith('.pdf')) {
+
+            button.disabled = true;
+            this.setState({
+                reportNameMessage: "Please enter a report name",
+                fileTypeMessage: "",
+                submitMessage: ""
+
+            });
+
+
+        }
 
         else {
             button.disabled = true;
@@ -118,6 +130,7 @@ document.location.reload(true);
                     <div className="chooseFile"> <SelectFile  clickable={this.ableToSubmit} /></div>
 
                     <button onClick={this.submitFile} id="submitButton" >Submit</button>
+
                     <p>{this.state.fileTypeMessage}</p>
                     <p>{this.state.reportNameMessage}</p>
                     <p>{this.state.submitMessage}</p>
