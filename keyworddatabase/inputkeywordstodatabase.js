@@ -1,41 +1,39 @@
-const express = require('express');
+const EXPRESS = require('express');
 let mongoose = require('mongoose');
 let url = "mongodb://localhost:27017/sentineldatabase";
 let fs = require('fs');
-const app = express();
-const port = 2008;
-let keywordsarray;
+const APP = EXPRESS();
+const PORT = 2008;
+let keywordsArray;
 let keywordModel = require('./keywordmodelarray.js');
 
-fs.readFile('NSAkeywordlist.txt',function(err,data){
-    if (err) throw err;
-    keywordsarray = data.toString().split(",");
-    for(let i = 0;i < keywordsarray.length;i++){
-        keywordsarray[i]= keywordsarray[i].trim();
-
-    }
-    return keywordsarray;
+fs.readFile('NSAkeywordlist.txt',function(err,data) {
+  if (err) throw err;
+  keywordsArray = data.toString().split(",");
+  for(let i = 0;i < keywordsArray.length;i++) {
+    keywordsArray[i]= keywordsArray[i].trim();
+  }
+return keywordsArray;
 });
 
-app.listen(port,function(){
+APP.listen(PORT,function() {
 console.log('listening on port');
 });
+
 mongoose.connect(url);
 let db = mongoose.connection;
 db.on('error', console.error.bind(console,'connection error:'));
-db.once('open', function(){
-    let wordstoinput = keywordModel({words:keywordsarray});
-    wordstoinput.save(function(err){
-        if(err) throw err;
-        console.log('input to database from textfile')
-    });
-    
-    process.on('SIGINT',function(){
-        db.close(function (){
-            console.log('disconnected');
-            process.exit(0);
-        })
-    });
+db.once('open', function() {
+  let wordstoinput = keywordModel({words:keywordsArray});
+  wordstoinput.save(function(err) {
+    if(err) throw err;
+    console.log('input to database from textfile')
+  });
+
+process.on('SIGINT',function() {
+db.close(function() {
+  console.log('disconnected');
+  process.exit(0);
+})
 });
-
-
+});
