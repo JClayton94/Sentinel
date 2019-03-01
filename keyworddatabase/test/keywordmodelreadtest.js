@@ -9,14 +9,10 @@ describe('hooks',function(){
 beforeEach(function(done){
         let keywordTest = new keywordModel({words:['plum']});
         keywordTest.save(done);
-     
         
 
 })
 
-    
-
-                
 
     describe('Read keywords',()=>{
 
