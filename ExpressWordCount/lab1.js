@@ -9,17 +9,6 @@ const keywordList = JSON.parse(keywordsImport);
 const keywordCount = [];
 const extractedText = [];
 
-try {
-  // const keywordList = JSON.parse(keywordsImport);
-  for (var word in keywordList.keywords) {
-    // let newWord = { keywordList.keywords[word] : word};
-    // tempKeywords.push(newWord);
-    // console.log(keywordList.keywords[word]);
-  }
-} catch (e) {
-    console.log(e);
-}
-
 for (let text in assessedPages) {
     let tempHold = assessedPages[text].Texts;
     for (let word in tempHold) {
@@ -44,12 +33,18 @@ for (let targetWord in keywordList.keywords) {
   let tempObject = { word: keywordList.keywords[targetWord], count: counter };
   keywordCount.push(tempObject);
 }
-
+console.log(extractedText);
 console.log(keywordCount);
 
-fileSys.writeFile('extractedWords3.txt', extractedText, function (err) {
+fileSys.writeFile('extractedWords3.js', JSON.stringify(extractedText), function (err) {
   if (err) throw err;
-  // console.log("done");
 });
 
-// console.log(extractedText);
+for (var count in keywordCount) {
+  fileSys.writeFile('KeywordCount.json', null, function (err) {
+    if(err) throw err;
+  })
+  fileSys.appendFile('KeywordCount.json', JSON.stringify(keywordCount[count]), function (err) {
+    if (err) throw err;
+  });
+}
